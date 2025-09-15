@@ -7,18 +7,104 @@ body {
 
 .header {
   align-items: center;
-  background-color: #08AEEA;
   color: white;
   display: flex;
   height: 100px;
   justify-content: space-between;
   top: 0px;
   width: 100%;
+  padding: 0 20px; /* Added padding for better spacing */
+  box-sizing: border-box; /* Include padding in width */
 }
 
 .header__img {
-  margin-left: 30px;
+  margin-left: 0px;
   width: 200px;
+  margin-top: 125px; /* Adjusted to align with new header structure */
+}
+
+.header__nav-menu {
+  flex-grow: 1; /* Allows the nav menu to take available space */
+  display: flex;
+  justify-content: center; /* Center the navigation links */
+}
+
+.header__nav-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-menu li {
+  margin: 0 15px;
+}
+
+.header__nav-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-menu li a i {
+  margin-right: 5px;
+}
+
+.header__menu {
+    margin-right: 30px;
+    position: relative; /* For dropdown positioning */
+}
+
+.header__menu--right {
+  margin-right: 0; /* Remove right margin for the rightmost menu */
+}
+
+.header__menu ul {
+  display: none;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  width: 150px; /* Adjusted width for dropdown */
+  text-align: left; /* Align dropdown items to left */
+  background-color: rgba(0, 0, 0, 0.7); /* Background for dropdown */
+  border-radius: 5px;
+  top: 100%; /* Position dropdown below the "Productos" button */
+  left: 0;
+  z-index: 10; /* Ensure dropdown is above other content */
+}
+
+.header__menu:hover ul, .header__menu ul:hover {
+    display: block;
+}
+
+.header__menu li {
+  margin: 10px 0px;
+}
+
+.header__menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px; /* Padding for dropdown items */
+  display: block; /* Make links block level for full clickable area */
+}
+
+.header__menu li a:hover {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.2); /* Hover effect for dropdown items */
+}
+
+.header__menu--profile {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.header__menu--profile img {
+  margin-right: 8px;
+  width: 40px;
 }
 
 .login {

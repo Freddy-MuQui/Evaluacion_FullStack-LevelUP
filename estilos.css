@@ -24,28 +24,70 @@ body::after{
   justify-content: space-between;
   top: 0px;
   width: 100%;
+  padding: 0 20px; /* Added padding for better spacing */
+  box-sizing: border-box; /* Include padding in width */
 }
 
 .header__img {
-  margin-left: 30px;
+  margin-left: 0px;
   width: 200px;
+  margin-top: 125px; /* Adjusted to align with new header structure */
+}
+
+.header__nav-menu {
+  flex-grow: 1; /* Allows the nav menu to take available space */
+  display: flex;
+  justify-content: center; /* Center the navigation links */
+}
+
+.header__nav-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-menu li {
+  margin: 0 15px;
+}
+
+.header__nav-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-menu li a i {
+  margin-right: 5px;
 }
 
 .header__menu {
     margin-right: 30px;
+    position: relative; /* For dropdown positioning */
+}
+
+.header__menu--right {
+  margin-right: 0; /* Remove right margin for the rightmost menu */
 }
 
 .header__menu ul {
   display: none;
   list-style: none;
-  margin: 0px 0px 0px -14px;
+  margin: 0px;
   padding: 0px;
   position: absolute;
-  width: 100px;
-  text-align: right;
+  width: 150px; /* Adjusted width for dropdown */
+  text-align: left; /* Align dropdown items to left */
+  background-color: rgba(0, 0, 0, 0.7); /* Background for dropdown */
+  border-radius: 5px;
+  top: 100%; /* Position dropdown below the "Productos" button */
+  left: 0;
+  z-index: 10; /* Ensure dropdown is above other content */
 }
 
-.header__menu:hover ul, ul:hover {
+.header__menu:hover ul, .header__menu ul:hover {
     display: block;
 }
 
@@ -56,10 +98,13 @@ body::after{
 .header__menu li a {
   color: white;
   text-decoration: none;
+  padding: 5px 10px; /* Padding for dropdown items */
+  display: block; /* Make links block level for full clickable area */
 }
 
 .header__menu li a:hover {
   text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.2); /* Hover effect for dropdown items */
 }
 
 .header__menu--profile {
@@ -82,6 +127,20 @@ body::after{
   border-radius: 0px 0px 40px 40px;
 }
 
+.input1 {
+  background-color: rgba(255,255,255,0.1);
+  border: 2px solid white;
+  border-radius: 25px;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  height: 50px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 20px;
+  width: 70%;
+}
+
 .main__title {
   color: white;
   font-size: 25px;
@@ -90,9 +149,10 @@ body::after{
 .categories__title {
   color: white;
   font-size: 16px;
-  position: absolute;
+  position: relative; /* Changed to relative for better flow */
   padding-left: 30px;
   width: 100%;
+  margin-top: 40px; /* Added margin for spacing */
 }
 
 .carousel {
@@ -112,13 +172,14 @@ body::after{
   padding-bottom: 10px;
 }
 
+/* Removed hover effects for opacity and transform on container */
 .carousel__container:hover .carousel-item {
-  opacity: 0.3;
+  opacity: 1; /* Keep items visible */
 }
 
 .carousel__container:hover .carousel-item:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+  -webkit-transform: scale(1.1); /* Slightly larger scale on hover */
+          transform: scale(1.1);
   opacity: 1;
 }
 
@@ -133,20 +194,25 @@ body::after{
   font-size: 20px;
   cursor: pointer;
   transition: 450ms all;
-  -webkit-transform-origin: center left;
-          transform-origin: center left;
+  -webkit-transform-origin: center center; /* Changed origin for better scaling */
+          transform-origin: center center;
 }
 
 .carousel-item:hover ~ .carousel-item {
-  -webkit-transform: translate3d(100px, 0, 0);
-          transform: translate3d(100px, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0); /* Removed translate effect */
+          transform: translate3d(0, 0, 0);
 }
 
 .carousel-item__img {
-  width: 200px;
-  height: 250px;
+  width: 100%; /* Make image fill the item */
+  height: 100%; /* Make image fill the item */
   -o-object-fit: cover;
      object-fit: cover;
+  transition: transform 450ms ease; /* Smooth transition for image scale */
+}
+
+.carousel-item:hover .carousel-item__img {
+  transform: scale(1.1); /* Scale image on hover */
 }
 
 .carousel-item__details {
@@ -158,8 +224,7 @@ body::after{
   flex-direction: column;
   justify-content: flex-end;
   left: 0;
-  opacity: 0;
-  transition: 450ms opacity;
+  opacity: 1; /* Always visible */
   padding: 10px;
   position: absolute;
   right: 0;
@@ -170,10 +235,7 @@ body::after{
   width: 20px;
 }
 
-.carousel-item:hover .carousel-item__details {
-  opacity: 1;
-}
-
+/* Removed hover effect for opacity on details as it's always visible */
 .carousel-item__details--title {
   color: white;
   margin: 5px 0px 0px 0px;
@@ -203,41 +265,197 @@ body::after{
   background: #999;
 }
 
+.gamer-news {
+  padding: 30px;
+  color: white;
+}
+
+.news-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 30px; /* Space between news article and video */
+  margin-top: 20px;
+}
+
+.news-article {
+  flex: 1; /* Take available space */
+  min-width: 300px; /* Minimum width for the article */
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.news-article h3 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.news-article p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.youtube-video {
+  flex: 1; /* Take available space */
+  min-width: 300px; /* Minimum width for the video */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.youtube-video iframe {
+  width: 100%;
+  max-width: 560px; /* Max width for the video */
+  height: 315px;
+  border-radius: 10px;
+}
+
 .footer {
   align-items: center;
   display: flex;
-  height: 100px;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  justify-content: space-around; /* Distribute items evenly */
+  height: auto; /* Auto height to accommodate content */
   width: 100%;
+  padding: 20px 0; /* Added padding */
+  margin-top: 50px; /* Added margin to separate from content */
 }
 
-.footer a {
+.footer-section {
+  display: flex;
+  align-items: center;
+  margin: 10px 20px; /* Margin for sections */
+}
+
+.footer-section a {
   color: white;
   cursor: pointer;
   font-size: 14px;
-  padding-left: 30px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-.footer a:hover {
+.footer-section a:hover {
   text-decoration: underline;
 }
 
-.input {
+.footer-section .chat-support i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.newsletter-subscribe {
+  flex-direction: row;
+}
+
+.input-newsletter {
   background-color: rgba(255,255,255,0.1);
   border: 2px solid white;
   border-radius: 25px;
   color: white;
   font-family: 'Muli', sans-serif;
-  font-size: 16px;
-  height: 50px;
-  margin-bottom: 20px;
+  font-size: 14px;
+  height: 40px;
   outline: none;
-  padding: 0px 20px;
-  width: 70%;
+  padding: 0px 15px;
+  width: 200px;
+  margin-right: 10px;
 }
+
+.btn-subscribe {
+  background-color: #2AF598;
+  color: #08AEEA;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-subscribe:hover {
+  background-color: #08AEEA;
+  color: #2AF598;
+}
+
+.social-media img {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border-radius: 50%; /* Make social media icons circular */
+  transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+  transform: scale(1.1);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footer-links a {
+  padding: 0 15px;
+  margin-bottom: 10px;
+}
+
 
 ::placeholder {
   color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .header__img {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .header__nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header__nav-menu li {
+    margin: 5px 0;
+  }
+
+  .header__menu--right {
+    margin-top: 10px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin: 10px 0;
+  }
+
+  .newsletter-subscribe {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-newsletter {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .news-container {
+    flex-direction: column;
+  }
 }
 
 @media only screen and (max-width: 600px) {
