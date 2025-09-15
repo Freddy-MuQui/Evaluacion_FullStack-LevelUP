@@ -172,14 +172,13 @@ body::after{
   padding-bottom: 10px;
 }
 
-/* Removed hover effects for opacity and transform on container */
 .carousel__container:hover .carousel-item {
-  opacity: 1; /* Keep items visible */
+  opacity: 0.3;
 }
 
 .carousel__container:hover .carousel-item:hover {
-  -webkit-transform: scale(1.1); /* Slightly larger scale on hover */
-          transform: scale(1.1);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
   opacity: 1;
 }
 
@@ -194,25 +193,20 @@ body::after{
   font-size: 20px;
   cursor: pointer;
   transition: 450ms all;
-  -webkit-transform-origin: center center; /* Changed origin for better scaling */
-          transform-origin: center center;
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
 }
 
 .carousel-item:hover ~ .carousel-item {
-  -webkit-transform: translate3d(0, 0, 0); /* Removed translate effect */
-          transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(100px, 0, 0);
+          transform: translate3d(100px, 0, 0);
 }
 
 .carousel-item__img {
-  width: 100%; /* Make image fill the item */
-  height: 100%; /* Make image fill the item */
+  width: 200px;
+  height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: transform 450ms ease; /* Smooth transition for image scale */
-}
-
-.carousel-item:hover .carousel-item__img {
-  transform: scale(1.1); /* Scale image on hover */
 }
 
 .carousel-item__details {
@@ -224,7 +218,8 @@ body::after{
   flex-direction: column;
   justify-content: flex-end;
   left: 0;
-  opacity: 1; /* Always visible */
+  opacity: 1;
+  transition: 450ms opacity;
   padding: 10px;
   position: absolute;
   right: 0;
@@ -235,7 +230,10 @@ body::after{
   width: 20px;
 }
 
-/* Removed hover effect for opacity on details as it's always visible */
+.carousel-item:hover .carousel-item__details {
+  opacity: 1;
+}
+
 .carousel-item__details--title {
   color: white;
   margin: 5px 0px 0px 0px;
