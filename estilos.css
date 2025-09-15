@@ -227,7 +227,7 @@ body::after{
 }
 
 .carousel-item__details--img {
-  width: 20px;
+  width: 24px;
 }
 
 .carousel-item:hover .carousel-item__details {
@@ -243,6 +243,28 @@ body::after{
   color: white;
   font-size: 8px;
   margin: 3px 0px;
+}
+
+.carousel-item__details--price {
+  color: #2AF598; /* Or any color you prefer for the price */
+  font-size: 10px;
+  margin: 3px 0px;
+  font-weight: bold;
+}
+
+.add-to-cart-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-to-cart-btn img {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -374,7 +396,7 @@ body::after{
 
 .btn-subscribe:hover {
   background-color: #08AEEA;
-  color: #2AF598;
+  color: white;
 }
 
 .social-media img {
