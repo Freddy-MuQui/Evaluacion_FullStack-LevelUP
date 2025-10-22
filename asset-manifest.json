@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Evaluacion_FullStack-LevelUP/static/css/main.f407e0a7.css",
+    "main.js": "/Evaluacion_FullStack-LevelUP/static/js/main.65f67634.js",
+    "static/js/845.0fc0c4a0.chunk.js": "/Evaluacion_FullStack-LevelUP/static/js/845.0fc0c4a0.chunk.js",
+    "index.html": "/Evaluacion_FullStack-LevelUP/index.html",
+    "main.f407e0a7.css.map": "/Evaluacion_FullStack-LevelUP/static/css/main.f407e0a7.css.map",
+    "main.65f67634.js.map": "/Evaluacion_FullStack-LevelUP/static/js/main.65f67634.js.map",
+    "845.0fc0c4a0.chunk.js.map": "/Evaluacion_FullStack-LevelUP/static/js/845.0fc0c4a0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f407e0a7.css",
+    "static/js/main.65f67634.js"
+  ]
+}
