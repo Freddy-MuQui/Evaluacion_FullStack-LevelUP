@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Carrito de Compras</title>
+<link rel="stylesheet" href="estilo_carrito.css">
+</head>
+<body>
+
+<header class="header">
+  <img class="header__img" src="Imagenes/logo_level_up.png" alt="Level up logo">
+  <div class="header__nav-menu">
+    <ul>
+      <li><a href="Master_v2.html">Home</a></li>
+      <li><a href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="registrarUsuario.html"><i class="fas fa-user"></i> Perfil</a></li>
+    </ul>
+  </div>
+  <div class="header__menu header__menu--right">
+    <div class="header__menu--profile">
+      <p>Productos</p>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <ul>
+      <li><a href="#">Consolas</a></li>
+      <li><a href="#">Videojuegos</a></li>
+      <li><a href="#">Accesorios</a></li>
+      <li><a href="#">Merchandising</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="main-wrapper">
+  <div class="carrito-container">
+    <div class="carrito-titulo">CARRITO</div>
+    <div class="productos-wrapper">
+      <table id="tabla-carrito">
+        <thead>
+          <tr>
+            <th>ITEM</th>
+            <th>CODIGO</th>
+            <th>ARTICULO</th>
+            <th>PRECIO</th>
+            <th>CANTIDAD</th>
+            <th>TOTAL</th>
+            <th>ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+          <!-- Productos se insertan aquí -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="resumen-compra">
+    <h2>Generar Compra</h2>
+    <div class="resumen-label">Subtotal:</div>
+    <div id="subtotal" class="resumen-valor">$0 CLP</div>
+
+    <div class="resumen-label">Costo envío:</div>
+    <div id="costo-envio" class="resumen-valor">$0 CLP</div>
+
+    <div class="resumen-label">Descuento:</div>
+    <div id="descuento" class="resumen-valor">$0 CLP</div>
+
+    <div class="resumen-label">Total a Pagar:</div>
+    <div id="total-pagar" class="resumen-valor">$0 CLP</div>
+
+    <button class="btn-pagar" id="btn-pagar">PAGAR</button>
+  </div>
+</div>
+
+<script src="carrito.js"></script>
+
+</body>
+</html>

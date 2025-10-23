@@ -1,0 +1,29 @@
+{
+  "name": "levelup-store-tests",
+  "version": "1.0.0",
+  "description": "Tests para la tienda Level Up",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server -p 3000 -o",
+    "test": "karma start karma.conf.js",
+    "test:watch": "karma start karma.conf.js --auto-watch --no-single-run",
+    "test:start": "karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "jasmine-core": "^4.6.0",
+    "karma": "^6.4.0",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-cli": "^2.0.0",
+    "karma-edge-launcher": "^0.4.2",
+    "karma-firefox-launcher": "^2.1.2",
+    "karma-html-reporter": "^0.2.7",
+    "karma-jasmine": "^5.1.0"
+  },
+  "keywords": [
+    "testing",
+    "jasmine",
+    "karma"
+  ],
+  "author": "Level Up Store",
+  "license": "MIT"
+}

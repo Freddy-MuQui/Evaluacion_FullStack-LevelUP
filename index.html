@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up Store - Tienda de Gaming</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn.primary {
+            background: #e74c3c;
+        }
+        .btn.primary:hover {
+            background: #c0392b;
+        }
+        .btn.secondary {
+            background: #27ae60;
+        }
+        .btn.secondary:hover {
+            background: #229954;
+        }
+        .description {
+            color: #7f8c8d;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Level Up Store</h1>
+        <p class="description">
+            Bienvenido a la tienda de gaming más completa. Explora nuestros productos, 
+            gestiona tu carrito y disfruta de la mejor experiencia de compra.
+        </p>
+        
+        <div class="nav-buttons">
+            <a href="Master_v2.html" class="btn primary">🏠 Ir a la Tienda</a>
+            <a href="carrito.html" class="btn">🛒 Carrito de Compras</a>
+            <a href="registrarUsuario.html" class="btn">👤 Registro de Usuario</a>
+            <a href="test-results.html" class="btn secondary">🧪 Ver Tests</a>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+            <h3>🚀 Comandos Disponibles</h3>
+            <p><strong>npm start</strong> - Inicia el servidor web</p>
+            <p><strong>npm test</strong> - Ejecuta los tests</p>
+            <p><strong>npm run test:watch</strong> - Tests en modo desarrollo</p>
+        </div>
+    </div>
+</body>
+</html>

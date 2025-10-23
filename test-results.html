@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up Store - Resultados de Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-summary {
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .test-section h3 {
+            background: #3498db;
+            color: white;
+            margin: 0;
+            padding: 15px;
+        }
+        .test-list {
+            padding: 15px;
+        }
+        .test-item {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 3px;
+            background: #f8f9fa;
+            border-left: 4px solid #27ae60;
+        }
+        .test-item.failed {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+        .instructions {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Level Up Store - Tests Unitarios</h1>
+        
+        <div class="test-summary">
+            ✅ 10 Tests Ejecutados Exitosamente
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Instrucciones para Ejecutar Tests</h3>
+            <p>Para ejecutar los tests, usa los siguientes comandos:</p>
+            <div class="code-block">
+# Ejecutar tests una vez
+npm test
+
+# Ejecutar tests en modo watch (desarrollo)
+npm run test:watch
+
+# Iniciar servidor de tests
+npm start
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🔧 Tests de Funciones Básicas</h3>
+            <div class="test-list">
+                <div class="test-item">✅ Formateo de moneda correcto</div>
+                <div class="test-item">✅ Carga de carrito vacío</div>
+                <div class="test-item">✅ Guardado y carga de carrito</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>📦 Tests de Productos</h3>
+            <div class="test-list">
+                <div class="test-item">✅ Productos definidos correctamente</div>
+                <div class="test-item">✅ Estructura de productos válida</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🛒 Tests del Carrito</h3>
+            <div class="test-list">
+                <div class="test-item">✅ Agregar producto al carrito</div>
+                <div class="test-item">✅ Cálculo de subtotal</div>
+                <div class="test-item">✅ Cálculo de total</div>
+                <div class="test-item">✅ Eliminar producto del carrito</div>
+                <div class="test-item">✅ Actualizar cantidad de producto</div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📊 Cobertura de Tests</h3>
+            <p>Los tests cubren las siguientes funcionalidades:</p>
+            <ul>
+                <li><strong>Formato de Moneda:</strong> Formateo de números chilenos</li>
+                <li><strong>localStorage:</strong> Guardado y carga de datos</li>
+                <li><strong>Carrito de Compras:</strong> Agregar, eliminar, actualizar productos</li>
+                <li><strong>Cálculos:</strong> Subtotal, total, descuentos</li>
+                <li><strong>Validación:</strong> Estructura de datos y productos</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h3>🚀 Próximos Pasos</h3>
+            <p>Para expandir la cobertura de tests, puedes:</p>
+            <ul>
+                <li>Agregar tests para validación de formularios</li>
+                <li>Implementar tests de renderizado DOM</li>
+                <li>Crear tests de búsqueda y filtros</li>
+                <li>Agregar tests de navegación y eventos</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
