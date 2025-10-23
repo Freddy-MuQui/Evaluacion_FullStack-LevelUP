@@ -1,0 +1,25 @@
+{
+  "short_name": "Level-up Gamer",
+  "name": "Level-up Gamer - Tu tienda de videojuegos y accesorios gaming",
+  "icons": [
+    {
+      "src": "Imagenes/logo_level_up.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "Imagenes/logo_level_up.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "Imagenes/logo_level_up.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#08AEEA",
+  "background_color": "#2AF598"
+}
