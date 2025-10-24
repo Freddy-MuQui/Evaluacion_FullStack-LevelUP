@@ -12,7 +12,7 @@ const CART_KEY = 'shoppingCart';
  * @returns {object} Funciones y estado del carrito (cart, addProductToCart, etc.).
  */
 export const useCart = () => {
-  // 1. Estado para almacenar el carrito (inicialmente cargado de localStorage)
+  // Estado para almacenar el carrito (inicialmente cargado de localStorage)
   const [cart, setCart] = useState(() => {
     try {
       const storedCart = localStorage.getItem(CART_KEY);
@@ -23,7 +23,7 @@ export const useCart = () => {
     }
   });
 
-  // 2. Efecto para guardar el carrito en localStorage cada vez que cambia
+  // Efecto para guardar el carrito en localStorage cada vez que cambia
   useEffect(() => {
     try {
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
@@ -32,7 +32,7 @@ export const useCart = () => {
     }
   }, [cart]);
 
-  // 3. Función para agregar un producto al carrito
+  // Función para agregar un producto al carrito
   const addProductToCart = useCallback((productId) => {
     const productToAdd = allProducts.find(p => p.id === productId);
 
@@ -59,7 +59,7 @@ export const useCart = () => {
     alert(`${productToAdd.nombre} ha sido añadido al carrito.`);
   }, []);
 
-  // 4. Función para actualizar la cantidad
+  // Función para actualizar la cantidad
   const updateQuantity = useCallback((productId, delta) => {
     setCart(prevCart => {
       return prevCart.map(item => {
@@ -69,11 +69,11 @@ export const useCart = () => {
           return { ...item, cantidad: newQuantity > 0 ? newQuantity : 1 };
         }
         return item;
-      }).filter(item => item.cantidad > 0); // Eliminar si la cantidad llega a 0 (aunque el botón down lo previene)
+      }).filter(item => item.cantidad > 0); // Eliminar si la cantidad llega a 0 
     });
   }, []);
 
-  // 5. Función para alternar 'llevar' (seleccionar para compra)
+  // Función para alternar 'llevar' (seleccionar para compra)
   const toggleLlevar = useCallback((productId) => {
     setCart(prevCart => {
       return prevCart.map(item => {
@@ -85,20 +85,20 @@ export const useCart = () => {
     });
   }, []);
 
-  // 6. Función para eliminar un producto
+  // Función para eliminar un producto
   const removeItem = useCallback((productId) => {
     setCart(prevCart => {
       return prevCart.filter(item => item.id !== productId);
     });
   }, []);
 
-  // 7. Función para vaciar el carrito (usado después de "PAGAR")
+  //Función para vaciar el carrito (usado después de "PAGAR")
   const clearCart = useCallback(() => {
     setCart([]);
-    alert("Compra generada con éxito.");
+    console.log("Carrito vaciado exitosamente.");
   }, []);
 
-  // 8. Cálculo de totales (refactoriza 'actualizarResumen')
+  //Cálculo de totales (refactoriza 'actualizarResumen')
   const calculateTotals = useCallback(() => {
     let subtotal = 0;
     cart.forEach(p => {

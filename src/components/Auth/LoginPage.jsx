@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
+import { Link, useNavigate } from 'react-router-dom';
 
 /**
  * @function LoginPage
@@ -9,6 +10,8 @@ import Footer from '../Common/Footer';
  * Implementa un formulario de login con gestión de estado y validación.
  */
 const LoginPage = () => {
+  const navigate = useNavigate(); 
+  
   // Estado para gestionar los campos del formulario
   const [formData, setFormData] = useState({
     email: '',
@@ -32,20 +35,27 @@ const LoginPage = () => {
   const validateForm = () => {
     const newErrors = {};
     let isValid = true;
+    
+    //cambiar el tipo de input y ajustar la validación aquí
+    const isSpecialUser = formData.email.trim().toLowerCase() === 'admin';
 
+    // Validación del Correo Electrónico
     if (!formData.email.trim()) {
       newErrors.email = 'El correo electrónico es obligatorio.';
       isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } 
+    //aplica la validación de formato de correo si NO es el usuario 'admin'
+    else if (!isSpecialUser && !/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'El correo electrónico no es válido.';
       isValid = false;
     }
 
+    // Validación de la Contraseña
     if (!formData.password.trim()) {
       newErrors.password = 'La contraseña es obligatoria.';
       isValid = false;
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'La contraseña debe tener al menos 6 caracteres.';
+    } else if (formData.password.length < 4) { 
+      newErrors.password = 'La contraseña debe tener al menos 4 caracteres.';
       isValid = false;
     }
 
@@ -58,10 +68,20 @@ const LoginPage = () => {
     e.preventDefault();
     
     if (validateForm()) {
-      // Lógica de login exitoso (simulación)
-      console.log('Datos de Login Válidos:', formData);
-      alert('¡Inicio de sesión exitoso!');
-      // Aquí se enviaría el fetch() a la API de backend
+      // 2. Simulación de login de Administrador
+      const isAdmin = formData.email.trim().toLowerCase() === 'admin' && formData.password === '1234';
+      
+      if (isAdmin) {
+        console.log('Login de Administrador exitoso. Redirigiendo a Dashboard.');
+        localStorage.setItem('userRole', 'admin'); 
+        navigate('/admin/dashboard'); 
+      } else {
+        // 3. Simulación de login de Usuario Normal (aquí iría el fetch real)
+        console.log('Datos de Login Válidos:', formData);
+        localStorage.setItem('userRole', 'user'); 
+        alert('¡Inicio de sesión exitoso!');
+        navigate('/'); 
+      }
     } else {
       alert('Por favor, corrige los errores del formulario.');
     }
@@ -82,13 +102,14 @@ const LoginPage = () => {
                 <form onSubmit={handleSubmit} id="loginForm">
                   {/* Correo Electrónico */}
                   <div className="mb-3">
-                    <label htmlFor="email" className="form-label text-dark fw-bold">Correo electrónico</label>
+                    <label htmlFor="email" className="form-label text-dark fw-bold">Correo electrónico / Usuario</label>
                     <input 
                       id="email" 
                       name="email" 
-                      type="email" 
+                      // tipo a 'text' para evitar la validación nativa del navegador
+                      type="text" 
                       className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-                      placeholder="tu@email.com" 
+                      placeholder="tu@email.com o admin" 
                       required 
                       value={formData.email} 
                       onChange={handleChange} 
@@ -96,7 +117,7 @@ const LoginPage = () => {
                     {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                   </div>
 
-                  {/* Contraseña */}
+                  {/* Contraseña (sin cambios) */}
                   <div className="mb-3">
                     <label htmlFor="password" className="form-label text-dark fw-bold">Contraseña</label>
                     <input 
@@ -104,7 +125,7 @@ const LoginPage = () => {
                       name="password" 
                       type="password" 
                       className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-                      placeholder="Ingresa tu contraseña" 
+                      placeholder="Ingresa tu contraseña (1234 para admin)" 
                       required 
                       value={formData.password} 
                       onChange={handleChange} 
@@ -112,7 +133,7 @@ const LoginPage = () => {
                     {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                   </div>
 
-                  {/* Recordar sesión */}
+                  {/* Resto del formulario... */}
                   <div className="mb-3 form-check">
                     <input 
                       type="checkbox" 
@@ -126,14 +147,12 @@ const LoginPage = () => {
                     </label>
                   </div>
 
-                  {/* Botón de envío */}
                   <div className="d-grid mb-3">
                     <button type="submit" className="btn btn-lg text-white" style={{ backgroundColor: '#2AF598', border: 'none' }}>
                       Iniciar Sesión
                     </button>
                   </div>
 
-                  {/* Enlace de recuperar contraseña */}
                   <div className="text-center mb-3">
                     <a href="#forgot-password" className="text-decoration-none" style={{ color: '#08AEEA' }}>
                       ¿Olvidaste tu contraseña?
@@ -141,7 +160,6 @@ const LoginPage = () => {
                   </div>
                 </form>
 
-                {/* Sección de Redes Sociales */}
                 <div className="text-center mt-4">
                   <p className="text-muted mb-3">O inicia sesión con</p>
                   <div className="d-flex justify-content-center gap-3">
@@ -156,7 +174,10 @@ const LoginPage = () => {
 
                 <div className="text-center mt-4">
                   <p className="text-muted">
-                    ¿No tienes cuenta? <a href="/registro" className="text-decoration-none" style={{ color: '#08AEEA' }}>Regístrate aquí</a>
+                    ¿No tienes cuenta? 
+                    <Link to="/registro" className="text-decoration-none" style={{ color: '#08AEEA' }}>
+                      Regístrate aquí
+                    </Link>
                   </p>
                 </div>
               </div>

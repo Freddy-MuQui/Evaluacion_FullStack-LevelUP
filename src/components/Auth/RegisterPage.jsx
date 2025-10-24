@@ -1,8 +1,9 @@
 // src/components/Auth/RegisterPage.jsx
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Common/Header';
 import Footer from '../Common/Footer';
-// Se importa el CSS específico de registro
+// Se importa el CSS 
 import '../../styles/disenioRegistro.css'; 
 
 /**
@@ -11,17 +12,17 @@ import '../../styles/disenioRegistro.css';
  * Implementa un formulario con gestión de estado y validación simple.
  */
 const RegisterPage = () => {
-  // 1. Estado para gestionar todos los campos del formulario
+  // Estado para gestionar todos los campos del formulario
   const [formData, setFormData] = useState({
     fullName: '', email: '', confirmEmail: '',
     password: '', confirmPassword: '', phone: '',
     region: '', comuna: '', address: '',
   });
 
-  // 2. Estado para manejar errores de validación
+  // Estado para manejar errores de validación
   const [errors, setErrors] = useState({});
 
-  // 3. Manejador de cambios para actualizar el estado del formulario
+  //Manejador de cambios para actualizar el estado del formulario
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
@@ -43,7 +44,7 @@ const RegisterPage = () => {
     // Validación simple de campos vacíos (el 'required' de HTML ayuda, pero validamos la lógica)
     for (const key in formData) {
       if (formData[key].trim() === '') {
-        // En un proyecto real, se mostraría un error más amigable para cada campo
+        // se mostraría un error más amigable para cada campo
         if (!isValid) continue; 
         newErrors[key] = 'Este campo es obligatorio.';
         isValid = false;
@@ -54,7 +55,7 @@ const RegisterPage = () => {
     return isValid;
   };
 
-  // 5. Manejador del envío del formulario
+  //Manejador del envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault(); // Previene el comportamiento por defecto de recarga
     
@@ -71,15 +72,15 @@ const RegisterPage = () => {
   // Estructura y opciones de Comunas/Regiones (tomadas del HTML original)
   const regions = [
     { value: "arica", label: "Arica y Parinacota" }, 
-    /* ... otras regiones ... */
+    /*  otras regiones  */
   ];
   const comunas = [
     { value: "arica", label: "Arica", region: "arica" },
     { value: "camarones", label: "Camarones", region: "arica" },
-    /* ... otras comunas de todas las regiones ... */
+    /*  otras comunas de todas las regiones  */
   ];
 
-  // Filtramos las comunas basándonos en la región seleccionada (para mejor UX)
+  // comunas basándonos en la región seleccionada (para mejor UX)
   const filteredComunas = comunas.filter(c => 
     !formData.region || c.region === formData.region
   );
@@ -285,7 +286,11 @@ const RegisterPage = () => {
 
                 <div className="text-center mt-4">
                   <p className="text-muted">
-                    ¿Ya tienes una cuenta? <a href="/login" className="text-decoration-none" style={{ color: '#08AEEA' }}>Inicia sesión</a>
+                    ¿Ya tienes una cuenta? 
+                    {/*  navegar a la ruta '/login' sin recargar la página */}
+                    <Link to="/login" className="text-decoration-none" style={{ color: '#08AEEA' }}>
+                      Inicia sesión
+                    </Link>
                   </p>
                 </div>
               </div>

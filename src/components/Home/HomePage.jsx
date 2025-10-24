@@ -6,6 +6,8 @@ import ProductCarousel from './ProductCarousel';
 import NewsSection from './NewsSection';
 import { allProducts } from '../../utils/productsData';
 
+//comando pa que funcione todo node "C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js" install
+
 /**
  * @function HomePage
  * @description Componente principal de la página de inicio con Bootstrap.

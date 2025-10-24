@@ -35,6 +35,15 @@ const CartPage = () => {
     // Lógica final de pago
     alert("Compra generada con éxito.\nTotal a pagar: " + totals.totalPagar);
     clearCart(); // Vacía el carrito después del pago
+
+    const currentPurchases = JSON.parse(localStorage.getItem('adminTotalPurchases')) || 0;
+    
+    // 2. Incrementamos el contador y lo guardamos de nuevo.
+    const newTotalPurchases = currentPurchases + 1;
+    localStorage.setItem('adminTotalPurchases', JSON.stringify(newTotalPurchases));
+
+    // Lógica final de pago
+    clearCart(); // Vacía el carrito después del pago
   };
 
   return (
@@ -208,6 +217,38 @@ const CartPage = () => {
       </div>
     </div>
   );
+
+  return (
+      // ... Todo el resto del componente CartPage.jsx sigue igual, solo se actualizó handleCheckout
+      <div className="min-vh-100" style={{ background: 'linear-gradient(#08AEEA, #2AF598)' }}>
+        <Header />
+        
+        <div className="container py-4">
+          {/* ... Contenido de la tabla del carrito ... */}
+            {/* Resumen de la compra */}
+            <div className="col-xl-4 col-lg-10 mt-4 mt-xl-0">
+              <div className="card shadow-lg">
+                <div className="card-header text-white" style={{ backgroundColor: '#2AF598' }}>
+                  <h4 className="mb-0 text-center">Generar Compra</h4>
+                </div>
+                <div className="card-body">
+                  {/* ... Totales ... */}
+                  <div className="d-flex justify-content-center">
+                    <button 
+                      className="btn btn-lg text-white px-5" 
+                      style={{ backgroundColor: '#2AF598', border: 'none' }}
+                      onClick={handleCheckout} // manejador actualizado
+                    >
+                      PAGAR
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    );
 };
+
 
 export default CartPage;

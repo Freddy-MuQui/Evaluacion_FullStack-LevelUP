@@ -5,6 +5,7 @@ import HomePage from './components/Home/HomePage';
 import CartPage from './components/Cart/CartPage';
 import RegisterPage from './components/Auth/RegisterPage';
 import LoginPage from './components/Auth/LoginPage';
+import DashboardPage from './components/Admin/DashboardPage';
 
 /**
  * @function App
@@ -32,6 +33,8 @@ const App = () => {
           
           {/* Ruta de la página de Login */}
           <Route path="/login" element={<LoginPage />} />
+
+          <Route path="/admin/dashboard" element={<DashboardPage />} />
 
           {/* Fallback 404. Es recomendable mantenerlo al final. */}
           <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
