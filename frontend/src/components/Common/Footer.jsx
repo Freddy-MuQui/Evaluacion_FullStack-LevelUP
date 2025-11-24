@@ -1,17 +1,15 @@
 // src/components/Common/Footer.jsx
 import React from 'react';
-// Se importa el CSS original para mantener los estilos
-import '../../styles/estilos.css'; 
 
 /**
  * @function Footer
- * @description Componente de pie de página (footer) de la tienda.
+ * @description Componente de pie de página (footer) de la tienda con Bootstrap.
  */
 const Footer = () => {
   // Manejador simple para el botón de suscribir (simulación de lógica)
   const handleSubscribe = (e) => {
     e.preventDefault();
-    const emailInput = e.target.querySelector('.input-newsletter').value;
+    const emailInput = e.target.querySelector('.form-control').value;
     if (emailInput) {
       alert(`Suscripción registrada para: ${emailInput}`);
     } else {
@@ -20,31 +18,58 @@ const Footer = () => {
   };
 
   return (
-    // La clase 'footer' proviene de estilos.css
-    <footer className="footer">
-      <div className="footer-section">
-        <a href="#chat" className="chat-support">
-          <i className="fas fa-comments"></i> Soporte por Chat
-        </a>
-      </div>
-      
-      {/* Sección de suscripción al boletín, manejada con lógica simple de React */}
-      <form className="footer-section newsletter-subscribe" onSubmit={handleSubscribe}>
-        <input type="email" placeholder="Suscríbete al boletín" className="input-newsletter" required />
-        <button type="submit" className="btn-subscribe">Suscribir</button>
-      </form>
-      
-      {/* Iconos de redes sociales. Las rutas de las imágenes deben ser relativas a la carpeta public/ */}
-      <div className="footer-section social-media">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><img src="Imagenes/facebook-icon.png" alt="Facebook" /></a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><img src="Imagenes/twitter-icon.png" alt="Twitter" /></a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><img src="Imagenes/instagram-icon.png" alt="Instagram" /></a>
-      </div>
+    <footer className="bg-dark text-light py-4 w-100">
+      <div className="container-fluid px-4">
+        <div className="row">
+          {/* Soporte por Chat */}
+          <div className="col-md-3 mb-3">
+            <a href="#chat" className="text-light text-decoration-none">
+              <i className="fas fa-comments me-2"></i> Soporte por Chat
+            </a>
+          </div>
+          
+          {/* Suscripción al boletín */}
+          <div className="col-md-4 mb-3">
+            <form onSubmit={handleSubscribe} className="d-flex">
+              <input 
+                type="email" 
+                className="form-control me-2" 
+                placeholder="Suscríbete al boletín" 
+                required 
+              />
+              <button type="submit" className="btn btn-success">
+                Suscribir
+              </button>
+            </form>
+          </div>
+          
+          {/* Redes sociales */}
+          <div className="col-md-3 mb-3">
+            <div className="d-flex gap-3">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                <img src="Imagenes/facebook-icon.png" alt="Facebook" width="30" height="30" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                <img src="Imagenes/twitter-icon.png" alt="Twitter" width="30" height="30" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                <img src="Imagenes/instagram-icon.png" alt="Instagram" width="30" height="30" />
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <div className="footer-links">
-        <a href="#terminos">Términos de uso</a>
-        <a href="#privacidad">Declaración de privacidad</a>
-        <a href="#ayuda">Centro de ayuda</a>
+        {/* Enlaces del footer */}
+        <hr className="my-3" />
+        <div className="row">
+          <div className="col-12 text-center">
+            <div className="d-flex justify-content-center flex-wrap gap-3">
+              <a href="#terminos" className="text-light text-decoration-none">Términos de uso</a>
+              <a href="#privacidad" className="text-light text-decoration-none">Declaración de privacidad</a>
+              <a href="#ayuda" className="text-light text-decoration-none">Centro de ayuda</a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );

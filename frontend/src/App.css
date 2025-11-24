@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+/* App container styles for better layout */
+.App-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/Home/HomePage';
 import CartPage from './components/Cart/CartPage';
 import RegisterPage from './components/Auth/RegisterPage';
+import LoginPage from './components/Auth/LoginPage';
 
 /**
  * @function App
@@ -27,6 +28,9 @@ const App = () => {
           
           {/* Ruta de la página de Registro de Usuario */}
           <Route path="/registro" element={<RegisterPage />} />
+
+          {/* Ruta de la página de Inicio de Usuario */}
+          <Route path="/login" element={<LoginPage />} />
 
           {/* Puedes añadir una ruta de fallback 404 aquí */}
           <Route path="*" element={<h1>404 - Página no encontrada</h1>} />

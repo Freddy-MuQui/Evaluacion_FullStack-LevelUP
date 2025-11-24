@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/Home/HomePage';
 import CartPage from './components/Cart/CartPage';
 import RegisterPage from './components/Auth/RegisterPage';
+import LoginPage from './components/Auth/LoginPage';
+import DashboardPage from './components/Admin/DashboardPage';
 
 /**
  * @function App
@@ -26,11 +28,16 @@ const App = () => {
           {/* Ruta de la página del Carrito, basada en tu estructura: './components/Cart/CartPage' */}
           <Route path="/carrito" element={<CartPage />} />
           
-          {/* Ruta de la página de Registro de Usuario, basada en tu estructura: './components/Auth/RegisterPage' */}
-          <Route path="/registro" element={<RegisterPage />} />
+          {/* Ruta de la página de Registro de Usuario, basada en tu estructura: './components/Auth/RegisterPage' */}
+          <Route path="/registro" element={<RegisterPage />} />
+          
+          {/* Ruta de la página de Login */}
+          <Route path="/login" element={<LoginPage />} />
 
-          {/* Fallback 404. Es recomendable mantenerlo al final. */}
-          <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
+          <Route path="/admin/dashboard" element={<DashboardPage />} />
+
+          {/* Fallback 404. Es recomendable mantenerlo al final. */}
+          <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
         </Routes>
       </div>
     </Router>

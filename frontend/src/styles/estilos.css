@@ -3,6 +3,8 @@ body {
   transition: all .3s;
   font-family: 'Muli', sans-serif;
   background: linear-gradient(#08AEEA, #2AF598);
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 body::after{
@@ -20,24 +22,34 @@ body::after{
   align-items: center;
   color: white;
   display: flex;
-  height: 100px;
+  height: 80px; /* Reduced height */
   justify-content: space-between;
   top: 0px;
   width: 100%;
   padding: 0 20px; /* Added padding for better spacing */
   box-sizing: border-box; /* Include padding in width */
+  background-color: #333; /* Gray background for header */
+  position: relative;
+  z-index: 100;
 }
 
 .header__img {
   margin-left: 0px;
-  width: 200px;
-  margin-top: 125px; /* Adjusted to align with new header structure */
+  width: 120px; /* Smaller logo */
+  margin-top: 0; /* Remove top margin for proper alignment */
 }
 
 .header__nav-menu {
-  flex-grow: 1; /* Allows the nav menu to take available space */
   display: flex;
-  justify-content: center; /* Center the navigation links */
+  justify-content: center; /* Center the navigation */
+  flex: 1; /* Take center space */
+}
+
+.header__logo {
+  display: flex;
+  justify-content: flex-start; /* Logo to the left */
+  align-items: center;
+  flex: 0 0 auto; /* Don't grow or shrink, just take needed space */
 }
 
 .header__nav-menu ul {
@@ -66,6 +78,9 @@ body::after{
 .header__menu {
     margin-right: 30px;
     position: relative; /* For dropdown positioning */
+    flex: 0 0 auto; /* Don't grow or shrink, just take needed space */
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
 }
 
 .header__menu--right {
@@ -123,8 +138,9 @@ body::after{
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 300px;
+  height: 200px; /* Reduced height */
   border-radius: 0px 0px 40px 40px;
+  padding: 20px;
 }
 
 .input1 {
@@ -134,16 +150,17 @@ body::after{
   color: white;
   font-family: 'Muli', sans-serif;
   font-size: 16px;
-  height: 50px;
-  margin-bottom: 20px;
+  height: 45px; /* Slightly smaller */
+  margin-bottom: 15px; /* Reduced margin */
   outline: none;
   padding: 0px 20px;
-  width: 70%;
+  width: 60%; /* Reduced width */
 }
 
 .main__title {
   color: white;
-  font-size: 25px;
+  font-size: 22px; /* Slightly smaller title */
+  margin-bottom: 15px; /* Add margin */
 }
 
 .categories__title {
@@ -152,14 +169,20 @@ body::after{
   position: relative; /* Changed to relative for better flow */
   padding-left: 30px;
   width: 100%;
-  margin-top: 40px; /* Added margin for spacing */
+  margin-top: 20px; /* Reduced margin */
 }
 
 .carousel {
-  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding-left: 30px;
   width: 100%;
   position: relative;
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle background for carousel */
+  border-radius: 15px;
+  margin: 10px 0; /* Reduced margin */
+  scroll-behavior: smooth; /* Smooth scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .carousel__container {
@@ -168,7 +191,7 @@ body::after{
   transition: 450ms transform, 450ms -webkit-transform;
   font-size: 0;
   white-space: nowrap;
-  margin: 70px 0px;
+  margin: 30px 0px; /* Reduced margin */
   padding-bottom: 10px;
 }
 
@@ -180,6 +203,8 @@ body::after{
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   opacity: 1;
+  background-color: #000; /* Black background on hover */
+  z-index: 10;
 }
 
 .carousel-item {
@@ -187,10 +212,10 @@ body::after{
   overflow: hidden;
   position: relative;
   display: inline-block;
-  width: 200px;
-  height: 250px;
+  width: 180px; /* Slightly smaller */
+  height: 220px; /* Slightly smaller */
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 18px; /* Slightly smaller font */
   cursor: pointer;
   transition: 450ms all;
   -webkit-transform-origin: center left;
@@ -202,11 +227,20 @@ body::after{
           transform: translate3d(100px, 0, 0);
 }
 
+.carousel-item__image-container {
+  width: 180px; /* Match carousel item size */
+  height: 220px; /* Match carousel item size */
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+}
+
 .carousel-item__img {
-  width: 200px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: all 0.3s ease; /* Smooth transition for image */
 }
 
 .carousel-item__details {
@@ -232,6 +266,23 @@ body::after{
 
 .carousel-item:hover .carousel-item__details {
   opacity: 1;
+}
+
+/* Enhanced hover effect for carousel items */
+.carousel-item:hover {
+  background-color: #000 !important;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-item:hover .carousel-item__img {
+  transform: translateY(-10px); /* Move image up on hover */
+  border-radius: 15px 15px 0 0;
+}
+
+.carousel-item:hover .carousel-item__image-container {
+  transform: translateY(-10px); /* Move image container up on hover */
+  border-radius: 15px 15px 0 0;
 }
 
 .carousel-item__details--title {
@@ -337,8 +388,11 @@ body::after{
   justify-content: space-around; /* Distribute items evenly */
   height: auto; /* Auto height to accommodate content */
   width: 100%;
-  padding: 20px 0; /* Added padding */
-  margin-top: 50px; /* Added margin to separate from content */
+  padding: 15px 0; /* Reduced padding */
+  margin-top: 20px; /* Reduced margin */
+  background-color: #333; /* Gray background for footer */
+  position: relative;
+  z-index: 100;
 }
 
 .footer-section {
@@ -436,18 +490,40 @@ body::after{
     padding: 10px;
   }
 
+  .header__nav-menu {
+    order: 1;
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header__logo {
+    order: 2;
+    flex: none;
+    margin: 10px 0;
+  }
+
+  .header__menu {
+    order: 3;
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
   .header__img {
     margin-top: 0;
     margin-bottom: 10px;
+    width: 150px; /* Smaller logo on mobile */
   }
 
   .header__nav-menu ul {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .header__nav-menu li {
-    margin: 5px 0;
+    margin: 5px 10px;
   }
 
   .header__menu--right {
@@ -475,6 +551,16 @@ body::after{
 
   .news-container {
     flex-direction: column;
+  }
+
+  .carousel-item {
+    width: 180px; /* Slightly smaller on mobile */
+    height: 220px;
+  }
+
+  .carousel-item__image-container {
+    width: 180px;
+    height: 220px;
   }
 }
 
