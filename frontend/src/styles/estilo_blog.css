@@ -1,0 +1,155 @@
+/* Estilos para la página de Blog */
+.blog-page {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(#08AEEA, #2AF598);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-container {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.blog-title {
+  color: white;
+  font-weight: bold;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+.blog-subtitle {
+  color: white;
+  font-size: 1.25rem;
+}
+
+.blog-section {
+  margin-bottom: 3rem;
+}
+
+.blog-section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.blog-section-icon {
+  color: white;
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.blog-section-title {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+.blog-section-description {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.blog-card {
+  background-color: #212529;
+  color: white;
+  height: 100%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.blog-card-body {
+  padding: 1.5rem;
+}
+
+.blog-card-title {
+  color: #28a745;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.blog-card-text {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.blog-btn {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.blog-btn:hover {
+  background-color: #218838;
+  color: white;
+  text-decoration: none;
+}
+
+.blog-btn i {
+  margin-left: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-title {
+    font-size: 2rem;
+  }
+  
+  .blog-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .blog-section-description {
+    font-size: 1rem;
+  }
+  
+  .blog-card-body {
+    padding: 1rem;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.blog-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.blog-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.blog-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+

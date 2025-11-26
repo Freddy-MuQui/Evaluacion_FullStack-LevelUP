@@ -1,0 +1,279 @@
+body {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  background: linear-gradient(#08AEEA, #2AF598);
+  color: white;
+}
+
+.header {
+  align-items: center;
+  color: white;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  top: 0px;
+  width: 100%;
+  padding: 0 20px; /* Added padding for better spacing */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.header__img {
+  margin-left: 0px;
+  width: 200px;
+  margin-top: 125px; /* Adjusted to align with new header structure */
+}
+
+.header__nav-menu {
+  flex-grow: 1; /* Allows the nav menu to take available space */
+  display: flex;
+  justify-content: center; /* Center the navigation links */
+}
+
+.header__nav-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-menu li {
+  margin: 0 15px;
+}
+
+.header__nav-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-menu li a i {
+  margin-right: 5px;
+}
+
+.header__menu {
+    margin-right: 30px;
+    position: relative; /* For dropdown positioning */
+}
+
+.header__menu--right {
+  margin-right: 0; /* Remove right margin for the rightmost menu */
+}
+
+.header__menu ul {
+  display: none;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  width: 150px; /* Adjusted width for dropdown */
+  text-align: left; /* Align dropdown items to left */
+  background-color: rgba(0, 0, 0, 0.7); /* Background for dropdown */
+  border-radius: 5px;
+  top: 100%; /* Position dropdown below the "Productos" button */
+  left: 0;
+  z-index: 10; /* Ensure dropdown is above other content */
+}
+
+.header__menu:hover ul, .header__menu ul:hover {
+    display: block;
+}
+
+.header__menu li {
+  margin: 10px 0px;
+}
+
+.header__menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px; /* Padding for dropdown items */
+  display: block; /* Make links block level for full clickable area */
+}
+
+.header__menu li a:hover {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.2); /* Hover effect for dropdown items */
+}
+
+.header__menu--profile {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.header__menu--profile img {
+  margin-right: 8px;
+  width: 40px;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 30px;
+  min-height: calc(100vh - 200px);
+  width: 100%;
+}
+
+.login__container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  border-radius: 40px;
+  color: white;
+  padding: 40px 50px 40px;
+  min-height: 800px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.login__container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.login__container--form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__container--form label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.input {
+  background-color: transparent;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 2px solid white;
+  font-size: 16px;
+  font-family: 'Muli', sans-serif;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  outline: none;
+  height: 50px;
+  color: white;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+select.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 16px;
+  height: 50px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+select.input:disabled {
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Muli', sans-serif;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.login__container--social-media {
+  margin-top: 20px;
+}
+
+.login__container--social-media > div {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.login__container--social-media > div > img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.login__container--register {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login__container--register a {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.login__container--register a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #2AF598;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer a {
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  .login__container {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    width: 100%;
+    min-height: auto;
+    border-radius: 0;
+  }
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0;
+  }
+}
