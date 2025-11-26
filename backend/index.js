@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors');
 const productRoutes = require('./routes/productRoutes');
+const authRoutes = require('./routes/authRoutes');
+
 // Inicializamos la aplicación
 const app = express();
 const PORT = process.env.PORT || 4000; // React suele usar el 3000, así que usaremos el 4000 para el backend
@@ -16,6 +18,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/products', productRoutes);
+app.use('/api/auth', authRoutes);
+
 
 // Ruta API de prueba
 app.get('/api/saludo', (req, res) => {
