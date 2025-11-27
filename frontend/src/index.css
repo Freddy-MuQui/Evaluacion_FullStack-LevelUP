@@ -1,0 +1,204 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Estilos personalizados para el proyecto */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Mejorar la apariencia de los botones de navegación del carrusel */
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+/* Estilos para los indicadores del carrusel */
+.carousel-indicator {
+  transition: all 0.3s ease;
+}
+
+.carousel-indicator:hover {
+  transform: scale(1.1);
+}
+
+/* Mejorar el contraste del texto en el footer */
+footer a:hover {
+  color: #2AF598 !important;
+}
+
+/* Estilos para el input de búsqueda */
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animaciones suaves para las transiciones */
+.card {
+  transition: all 0.3s ease;
+}
+
+/* Mejorar la apariencia de los dropdowns */
+.dropdown-menu {
+  background-color: rgba(33, 37, 41, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(42, 245, 152, 0.2);
+  color: #2AF598;
+}
+
+/* Ocultar scrollbar para el carrusel estilo Netflix */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Mejorar el ancho del header y footer */
+.navbar {
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%);
+}
+
+footer {
+  width: 100vw !important;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* Estilos para el carrusel Netflix */
+.carousel-netflix {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.carousel-netflix::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mejorar los botones de navegación del carrusel */
+.carousel-nav-btn {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border: none !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.carousel-nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  transform: scale(1.1);
+}
+
+/* Estilos para la barra deslizante personalizada */
+.custom-scrollbar {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #333;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-scrollbar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #2AF598;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-slider-thumb:hover {
+  background: #08AEEA;
+  transform: scale(1.1);
+}
+
+.custom-scrollbar::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #2AF598;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-moz-range-thumb:hover {
+  background: #08AEEA;
+  transform: scale(1.1);
+}
+
+.custom-scrollbar-container {
+  position: relative;
+}
+
+/* Asegurar que la página use todo el ancho */
+body, html {
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  width: 100vw;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Asegurar que todos los elementos usen el ancho completo */
+.w-100 {
+  width: 100vw !important;
+}
+
+/* Mejorar el layout del carrusel dinámico */
+.carousel-dynamic {
+  width: 100vw;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.carousel-dynamic::-webkit-scrollbar {
+  display: none;
+}
+
+/* Efectos de transición para productos */
+.product-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
